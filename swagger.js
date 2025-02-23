@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://botigashop-api.onrender.com/'
+        url: 'https://botigashop-api.onrender.com/',
         description: 'Development server',
       },
     ],
