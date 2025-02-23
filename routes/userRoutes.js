@@ -27,7 +27,7 @@ const { authenticateUser } = require('../middlewares/authMiddleware');
  *               - name
  *               - email
  *               - password
- *               -confirmPassword
+ *               - confirmPassword
  *             properties:
  *               name:
  *                 type: string
