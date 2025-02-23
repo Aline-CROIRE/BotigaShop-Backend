@@ -38,6 +38,7 @@ app.use(cors());
 app.use(express.json());
 
 // Swagger documentation route
+app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Register application routes (ensure each of these modules exports an Express router instance)
