@@ -4,19 +4,38 @@ const jwt = require('jsonwebtoken');
 
 exports.registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password,confirmPassword } = req.body;
     
-    // Check if user already exists
+    //git Check if user already exists
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ message: 'User already exists' });
     }
-
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      return res.status(400).json({ message: 'Passwords do not match' });
+    }
+    // Check if password is strong enough
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      return res.status(400).json({ message: 'Password is not strong enough' });
+    }
+    // Check if email is valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ message: 'Email is not valid' });
+    }
+    // Check if name is valid
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(name)) {
+      return res.status(400).json({ message: 'Name is not valid' });
+    }
+    
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create user
-    user = new User({ name, email, password: hashedPassword });
+    user = new User({ name, email, password: hashedPassword, confirmPassword: hashedPassword });
     await user.save();
 
     res.status(201).json({ message: 'User registered successfully' });
