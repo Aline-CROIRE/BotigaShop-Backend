@@ -38,6 +38,7 @@ app.use(cors());
 app.use(express.json());
 
 // Swagger documentation route
+
 app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 

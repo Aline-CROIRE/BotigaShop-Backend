@@ -20,7 +20,9 @@ const { authenticateUser } = require('../middlewares/authMiddleware');
  *               - name
  *               - email
  *               - password
+
  *               - confirmPassword  # ✅ Correct spacing
+
  *             properties:
  *               name:
  *                 type: string
