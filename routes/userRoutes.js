@@ -6,13 +6,6 @@ const { authenticateUser } = require('../middlewares/authMiddleware');
 
 /**
  * @swagger
- * tags:
- *   name: Users
- *   description: User management and authentication
- */
-
-/**
- * @swagger
  * /api/users/register:
  *   post:
  *     summary: Register a new user
@@ -27,7 +20,9 @@ const { authenticateUser } = require('../middlewares/authMiddleware');
  *               - name
  *               - email
  *               - password
- *               - confirmPassword
+
+ *               - confirmPassword  # ✅ Correct spacing
+
  *             properties:
  *               name:
  *                 type: string
@@ -36,7 +31,7 @@ const { authenticateUser } = require('../middlewares/authMiddleware');
  *               password:
  *                 type: string
  *               confirmPassword:
- *                  type: string
+ *                 type: string
  *     responses:
  *       201:
  *         description: User registered successfully

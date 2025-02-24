@@ -11,6 +11,7 @@
  *       properties:
  *         _id:
  *           type: string
+ *           format: uuid
  *           description: Auto-generated ID of the user
  *         name:
  *           type: string
@@ -19,6 +20,7 @@
  *           format: email
  *         password:
  *           type: string
+ *           format: password
  *         role:
  *           type: string
  *           enum: [user, admin]
@@ -38,6 +40,7 @@
  *       properties:
  *         _id:
  *           type: string
+ *           format: uuid
  *           description: Auto-generated ID of the product
  *         name:
  *           type: string
@@ -47,6 +50,7 @@
  *           type: number
  *         category:
  *           type: string
+ *           format: uuid
  *           description: ID of the category
  *         subCategory:
  *           type: string
@@ -58,6 +62,7 @@
  *           type: number
  *         vendor:
  *           type: string
+ *           format: uuid
  *           description: ID of the vendor (user)
  *         specifications:
  *           type: object
@@ -86,17 +91,24 @@
  *       properties:
  *         _id:
  *           type: string
+ *           format: uuid
  *           description: Auto-generated ID of the order
  *         user:
  *           type: string
+ *           format: uuid
  *           description: ID of the user who placed the order
  *         items:
  *           type: array
  *           items:
  *             type: object
+ *             required:
+ *               - product
+ *               - quantity
+ *               - price
  *             properties:
  *               product:
  *                 type: string
+ *                 format: uuid
  *                 description: ID of the product
  *               quantity:
  *                 type: number
@@ -134,17 +146,23 @@
  *       properties:
  *         _id:
  *           type: string
+ *           format: uuid
  *           description: Auto-generated ID of the cart
  *         user:
  *           type: string
+ *           format: uuid
  *           description: ID of the user who owns the cart
  *         items:
  *           type: array
  *           items:
  *             type: object
+ *             required:
+ *               - product
+ *               - quantity
  *             properties:
  *               product:
  *                 type: string
+ *                 format: uuid
  *                 description: ID of the product
  *               quantity:
  *                 type: number
@@ -154,10 +172,12 @@
  *       properties:
  *         paymentId:
  *           type: string
+ *           format: uuid
  *         amount:
  *           type: number
  *         status:
  *           type: string
+ *           enum: [pending, completed, failed]
  *         createdAt:
  *           type: string
  *           format: date-time
@@ -174,9 +194,12 @@
  *         last4:
  *           type: string
  *         expMonth:
- *           type: number
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 12
  *         expYear:
- *           type: number
+ *           type: integer
+ *           minimum: 2024
  *
  *     Category:
  *       type: object
@@ -185,6 +208,7 @@
  *       properties:
  *         _id:
  *           type: string
+ *           format: uuid
  *           description: Auto-generated ID of the category
  *         name:
  *           type: string
@@ -192,8 +216,10 @@
  *           type: string
  *         parentCategory:
  *           type: string
+ *           format: uuid
  *           description: ID of the parent category (for subcategories)
  *         image:
  *           type: string
  *           description: URL of the category image
  */
+                                

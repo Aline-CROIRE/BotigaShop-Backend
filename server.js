@@ -38,10 +38,15 @@ app.use(cors());
 app.use(express.json());
 
 // Swagger documentation route
-app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 
 // Register application routes (ensure each of these modules exports an Express router instance)
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API is working correctly" })
+})
+
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/cart', require('./routes/cartRoutes'));
