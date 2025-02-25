@@ -20,14 +20,11 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: "Passwords do not match" });
     }
 
-    // Password strength check
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordRegex.test(password)) {
-      return res.status(400).json({
-        message: "Password must be at least 8 characters, include an uppercase, a lowercase, a number, and a special character.",
-      });
-    }
+  if (password.length < 8) {
+  return res.status(400).json({
+    message: "Password must be at least 8 characters long.",
+  });
+}
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
