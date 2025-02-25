@@ -1,4 +1,4 @@
-# BotigaShop Backend API - REST API for an E-Commerce Platform 🛍️🛒
+# BotigaShop Backend API - REST API for a BotigaShop E-commerce 🛍️🛒
 
 This repository contains the backend REST API for BotigaShop, a fictional e-commerce platform. This API provides endpoints for managing products, categories, users, orders, and other essential e-commerce functionalities.
 
@@ -46,7 +46,7 @@ The BotigaShop Backend API provides the server-side logic and data management fo
 *   **JSON Web Tokens (JWT):** For secure authentication and authorization. 🔑
 *   **Bcrypt:** For password hashing and security. 🛡️
 *   **Nodemailer:** For sending emails (e.g., order confirmations, password resets). 📧
-*   **Swagger/OpenAPI:** For API documentation and testing (generates the Swagger UI). 📚
+*   **Swagger:** For API documentation and testing (generates the Swagger UI). 📚
 *   **Stripe:** For processing payments. 💳
 *   **Render:** Hosting platform for the API. ☁️
 
@@ -132,6 +132,7 @@ We welcome contributions! Please follow these guidelines:
 MIT License 📜
 
 **Contact** 📧
+Please feel free to reach out if you have any questions, suggestions, or bug reports related to the BotigaShop Backend API. I am happy to help!
 
 *   **Email:** niyocroirealine@gmail.com ✉️
 *   **Instagram:** [https://www.instagram.com/croire_aline/](https://www.instagram.com/croire_aline/) 📸
