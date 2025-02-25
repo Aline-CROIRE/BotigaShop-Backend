@@ -62,7 +62,7 @@ The BotigaShop Backend API provides the server-side logic and data management fo
 2.  **Install dependencies:**
 
     ```bash
-    npm install  # or yarn install
+    npm install  
     ```
 
 3.  **Configure environment variables:**
@@ -131,9 +131,14 @@ We welcome contributions! Please follow these guidelines:
 
 MIT License 📜
 
-**Contact**
+**Contact** 📧
 
-[Optionally, include contact information for the project maintainers] 📧
+*   **Email:** niyocroirealine@gmail.com ✉️
+*   **Instagram:** [https://www.instagram.com/croire_aline/](https://www.instagram.com/croire_aline/) 📸
+*   **LinkedIn:** [https://www.linkedin.com/in/niyonizera-aline-105884291/](https://www.linkedin.com/in/niyonizera-aline-105884291/) 💼
+*   **Twitter:** [https://x.com/AlineNiyon99024](https://x.com/AlineNiyon99024) 🐦
+*   **Phone:** +250 790635120 📞 
+
 
 **Disclaimer** ⚠️
 
