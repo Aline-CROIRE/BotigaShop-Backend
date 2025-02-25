@@ -12,7 +12,7 @@ This repository contains the backend REST API for BotigaShop, a fictional e-comm
 
 **Overview**
 
-The BotigaShop Backend API provides the server-side logic and data management for the BotigaShop e-commerce application. It's built using [mention technologies used, e.g., Node.js, Express, MongoDB, PostgreSQL, etc. - VERY IMPORTANT!].  It follows RESTful principles for predictable and efficient data access and manipulation.
+The BotigaShop Backend API provides the server-side logic and data management for the BotigaShop e-commerce application. It's built using Node.js, Express.js and Mongoose.  It follows RESTful principles for predictable and efficient data access and manipulation.
 
 **Key Features** ✨
 
@@ -31,21 +31,24 @@ The BotigaShop Backend API provides the server-side logic and data management fo
     *   Place orders and manage order status. 🛒🚚
     *   Track order history. 🧾🕒
     *   Calculate order totals and shipping costs. 💳🚚
+*   **Payment Processing:**
+    *   Integration with Stripe for secure payment processing. 💳
 *   **Authentication and Authorization:**
-    *   Secure API endpoints using [mention authentication mechanism, e.g., JWT, OAuth2]. 🔒🔑
+    *   Secure API endpoints using JWT. 🔒🔑
     *   Authorize users to access specific resources based on their roles. 🛡️
 
 **Technologies Used** ⚙️
 
-*   [**Node.js:**] (if applicable) The JavaScript runtime environment for server-side development. 🌍
-*   [**Express.js:**] (if applicable) A minimalist web application framework for Node.js. 🚀
-*   [**MongoDB or PostgreSQL:**] (replace with the actual database used) Database used for storing application data. 🗄️ Specify which one!
-*   [**Mongoose or Sequelize:**] (replace with the actual ORM/ODM used, or remove if none) An Object-Relational Mapper (ORM) or Object-Document Mapper (ODM) for interacting with the database. 🔄 Specify which one!
-*   [**JSON Web Tokens (JWT):**] (if applicable) For secure authentication and authorization. 🔑
-*   [**Bcrypt or Argon2:**] (if applicable) For password hashing and security. 🛡️
-*   [**Nodemailer:**] (if applicable) For sending emails (e.g., order confirmations, password resets). 📧
-*   [**Swagger/OpenAPI:**]  For API documentation and testing (generates the Swagger UI). 📚
-*   [**Render/Heroku/AWS:**] (replace with where it is deployed) Hosting platform for the API. ☁️
+*   **Node.js:** The JavaScript runtime environment for server-side development. 🌍
+*   **Express.js:** A minimalist web application framework for Node.js. 🚀
+*   **Mongoose:** An Object-Document Mapper (ODM) for interacting with MongoDB. 🔄
+*   **MongoDB:** Database used for storing application data. 🗄️
+*   **JSON Web Tokens (JWT):** For secure authentication and authorization. 🔑
+*   **Bcrypt:** For password hashing and security. 🛡️
+*   **Nodemailer:** For sending emails (e.g., order confirmations, password resets). 📧
+*   **Swagger/OpenAPI:** For API documentation and testing (generates the Swagger UI). 📚
+*   **Stripe:** For processing payments. 💳
+*   **Render:** Hosting platform for the API. ☁️
 
 **Installation and Setup** 🛠️
 
@@ -69,24 +72,19 @@ The BotigaShop Backend API provides the server-side logic and data management fo
 
         ```
         PORT=3000
-        DATABASE_URL=[YOUR_DATABASE_CONNECTION_STRING]
+        DATABASE_URL=[YOUR_MONGODB_CONNECTION_STRING]
         JWT_SECRET=[YOUR_JWT_SECRET_KEY]
+        STRIPE_SECRET_KEY=[YOUR_STRIPE_SECRET_KEY]
+        STRIPE_PUBLIC_KEY=[YOUR_STRIPE_PUBLIC_KEY]
+        NODEMAILER_EMAIL=[YOUR_NODEMAILER_EMAIL]
+        NODEMAILER_PASSWORD=[YOUR_NODEMAILER_PASSWORD]
         NODE_ENV=development  # or production
         # Add other necessary environment variables (e.g., email configuration)
         ```
 
     *   **Important:** Do not commit your `.env` file to the repository. ⚠️
 
-4.  **Run database migrations (if applicable):**
-
-    ```bash
-    # Example using Sequelize:
-    npx sequelize db:migrate
-    ```
-
-    (Adapt command based on your chosen ORM/ODM.)
-
-5.  **Start the server:**
+4.  **Start the server:**
 
     ```bash
     npm run dev  # or yarn dev (for development with hot reloading)
@@ -109,8 +107,11 @@ Refer to the live Swagger UI documentation for a complete list of available endp
 
 **Authentication** 🔒🔑
 
-The API uses [mention the authentication mechanism, e.g., JWT] for authentication.  After successful login, the API will return a JWT token. Include this token in the `Authorization` header of subsequent requests to protected endpoints:Authorization: Bearer <YOUR_JWT_TOKEN>
+The API uses JWT for authentication. After successful login, the API will return a JWT token. Include this token in the `Authorization` header of subsequent requests to protected endpoints:Authorization: Bearer <YOUR_JWT_TOKEN>
 
+**Payment Processing** 💳
+
+The API utilizes Stripe for processing payments. Refer to the Stripe documentation and API endpoints for details on integrating payment functionality. You'll need to configure Stripe with your secret and publishable keys.
 
 **Error Handling** 🚨
 
@@ -118,7 +119,7 @@ The API returns standard HTTP status codes to indicate the success or failure of
 
 **Contributing** 🤝
 
-We welcome contributions!  Please follow these guidelines:
+We welcome contributions! Please follow these guidelines:
 
 *   Fork the repository. 🍴
 *   Create a new branch for your feature or bug fix. 🌿
@@ -128,7 +129,7 @@ We welcome contributions!  Please follow these guidelines:
 
 **License**
 
-[Specify the license, e.g., MIT License] 📜
+MIT License 📜
 
 **Contact**
 
